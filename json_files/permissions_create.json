@@ -1,0 +1,25 @@
+[{"user_id":"1",
+"file_id": "1",
+"r_perm": "1",
+"w_perm": "0",
+"a_perm": "0"
+},
+{"user_id":"1",
+"file_id": "2",
+"r_perm": "1",
+"w_perm": "0",
+"a_perm": "0"
+},
+{"user_id":"2",
+"file_id": "3",
+"r_perm": "1",
+"w_perm": "0",
+"a_perm": "0"
+},
+{"user_id":"1",
+"file_id": "4",
+"r_perm": "0",
+"w_perm": "0",
+"a_perm": "0"
+}]
+

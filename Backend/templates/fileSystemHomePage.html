@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>File System Home</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <script>
+        window.onload = function () {
+            let examples;
+            fetch("./examples.json")
+                .then((r) => r.json())
+                .then((d) => {
+                    console.log("d", d);
+                    examples = d;
+                    /* post all examples to backend */
+                    examples.map((example) => {
+                        console.log("example", example);
+                        const jsonBody = JSON.stringify(example);
+                        try {
+                            fetch("http://127.0.0.1:5000/files", {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                },
+                                body: jsonBody
+                            })
+                                .catch((e) => {
+                                    /* console.log(e); */
+                                });
+                        }
+                        catch (e) {
+                            console.log(e);
+                        }
+                    });
+                });
+
+            document.getElementById("newFileButton").addEventListener("click", () => {
+                /* alert("Imagine this just created a new file..."); */
+                document.getElementById("newFileForm").style.display = "block";
+            });
+
+            document.getElementById("newFileForm").addEventListener("submit", () => {
+                event.preventDefault();
+
+                const name = document.getElementById("filename").value;
+                const data = document.getElementById("data").value;
+                const created = "2022-12-27 08:26:49.219717";
+                const updated = "2022-12-27 08:26:49.219717";
+                const parent = "1";
+                console.log(name, data);
+                const jsonBody = JSON.stringify({ name, data, created, updated, parent })
+                console.log(jsonBody);
+                alert("Imagine this just created a new file...");
+
+                fetch("http://127.0.0.1:5000/files", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: jsonBody
+                })
+                    .then((r) => r.json())
+                    .then((d) => {
+                        console.log(d);
+                    });
+            })
+        };
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <img src="../static/figures/sqlsolutions_logo_no_bg.png" alt="SQLSolutions Logo" height="100%">
+        <h1>SQLSolutions</h1>
+    </div>
+    <div class="file-system-container">
+        <button id="newFileButton" class="button">New File...</button>
+        <form id="newFileForm" style="display: none;">
+            <div class="form-field">
+                <label for="name">File Name:</label>
+                <input type="text" id="filename" name="filename" required>
+            </div>
+            <div class="form-field">
+                <label for="data">Content:</label>
+                <input type="text" id="data" name="data">
+            </div>
+            <input type="submit" id="submitButton" value="Create">
+        </form>
+    </div>
+
+</body>
+
+</html>

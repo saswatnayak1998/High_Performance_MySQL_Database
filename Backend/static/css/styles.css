@@ -1,0 +1,117 @@
+:root {
+    --header-height: calc(30px + 3vh);
+    --body-height: calc(100vh - var(--header-height));
+    --header-font-size: calc(var(--header-height) / 2);
+    --body-font-size: calc(5px + var(--body-height) / 60);
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.button {
+    display: block;
+    margin: calc(var(--body-font-size)/2);
+    padding: calc(var(--body-font-size)/2);
+    background-color: #0077ff;
+    cursor: pointer;
+    border: none;
+    border-radius: calc(var(--body-font-size)/4);
+    font-size: calc(var(--body-font-size));
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: #005fcc;
+}
+
+.header {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    background: #9bc8ff;
+}
+
+.header h1 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    display: flex;
+    align-items: center;
+    width: 70%;
+    height: 100%;
+    margin-left: calc(var(--header-font-size)/5);
+    font-size: var(--header-font-size);
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    height: var(--body-height);
+    background-color: #dcf0ff;
+    font-size: var(--body-font-size);
+}
+
+.login-container .button {
+    margin: calc(var(--body-font-size)/2) 0;
+}
+
+.login-container .box {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: calc(var(--body-height)/15);
+    background-color: white;
+    border-radius: calc(var(--body-height)/25);
+}
+
+.login-container h1 {
+    font-size: calc(var(--body-font-size)*1.5);
+    text-align: center;
+}
+
+.login-container p {
+    font-size: calc(var(--body-font-size)*1.2);
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form .form-field {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    margin: calc(var(--body-font-size)/2) 0;
+    padding: calc(var(--body-font-size)/2);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: calc(var(--body-font-size));
+}
+
+.file-system-container {
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    height: var(--body-height);
+}
+
+.file-system-container button {
+    margin: calc(var(--body-font-size)/2);
+}
+
+.file-system-container #newFileButton {
+    font-weight: 600;
+}

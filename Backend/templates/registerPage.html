@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+
+<body>
+    <div class="header">
+        <img src="../static/figures/sqlsolutions_logo_no_bg.png" alt="SQLSolutions Logo" height="100%">
+        <h1>SQLSolutions</h1>
+    </div>
+    <div class="login-container">
+        <div class="box">
+            <h1>Sign Up</h1>
+            <p>Create your account!</p>
+            <form action="register-endpoint" method="post">
+                <div class="form-field">
+                    <label for="name">First Name:</label>
+                    <input type="text" id="fname" name="fname" required>
+                </div>
+                <div class="form-field">
+                    <label for="name">Last Name:</label>
+                    <input type="text" id="lname" name="lname" required>
+                </div>
+                <div class="form-field">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-field">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="button">Sign Up</button>
+            </form>
+            <a href="loginPage.html" class="button">Back</a>
+        </div>
+    </div>
+</body>
+
+</html>
